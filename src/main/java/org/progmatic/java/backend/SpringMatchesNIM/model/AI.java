@@ -18,7 +18,7 @@ public class AI implements Player{
 
         switch (difficulty) {
             case CAUTIOUS:
-                move = nextCautiosMove(actual);
+                move = nextCautiousMove(actual);
                 break;
             case FOOL:
                 move = nextFoolMove(actual);
@@ -29,6 +29,8 @@ public class AI implements Player{
             case CLEVER:
                 move = nextCleverMove(actual);
                 break;
+            default:
+                move = 0;
         }
         return move;
     }
@@ -38,7 +40,7 @@ public class AI implements Player{
         difficulty = Difficulty.getByValue(diffValue);
     }
 
-    private int nextCautiosMove(int actual) {
+    private int nextCautiousMove(int actual) {
         return 1;
     }
 
@@ -47,7 +49,7 @@ public class AI implements Player{
         if (position == 0)
             position += 4;
         if (position == 1)
-            return nextCautiosMove(actual);
+            return nextCautiousMove(actual);
         return position - 1;
     }
 
